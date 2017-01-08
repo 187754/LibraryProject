@@ -1,0 +1,6 @@
+attrNamesToIgnore=
+eclipse.preferences.version=1
+elementNamesToIgnore=ng-app, ng-repeat, ng-cloak, ng-controller, ng-if
+ignoreAttrNames=false
+ignoreElementNames=true
+use-project-settings=true
