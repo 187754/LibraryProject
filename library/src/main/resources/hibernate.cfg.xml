@@ -22,6 +22,9 @@
  
         <!-- Annotated entity classes -->
         <mapping class="com.leszczynski.entity.TestEntity"/>
+        <mapping class="com.leszczynski.entity.UserEntity"/>
+        
+        
         
     </session-factory>
 </hibernate-configuration>

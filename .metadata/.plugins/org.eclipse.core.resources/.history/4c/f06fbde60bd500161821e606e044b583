@@ -1,6 +1,0 @@
-angular.module('hello', [])
-  .controller('home', function($scope) {
-	  $http.get('/resource/').success(function($scope, $http){
-		  $scope.greeting = data;
-	  })
-});

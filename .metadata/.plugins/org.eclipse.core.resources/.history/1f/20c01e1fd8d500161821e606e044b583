@@ -1,7 +1,0 @@
-package com.leszczynski;
-
-import junit.framework.TestCase;
-
-public class testEntityTest extends TestCase {
-
-}
