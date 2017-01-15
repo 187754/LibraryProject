@@ -1,26 +1,63 @@
-<!doctype html>
-<html lang="en" ng-app="myApp">
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html ng-app="libraryApp">
 <head>
+
+<title>Twoje Książki</title>
 <meta charset="utf-8">
-<title>Library</title>
-<link href="css/angular-bootstrap.css" rel="stylesheet">
-<style type="text/css">
-[ng\:cloak], [ng-cloak], .ng-cloak {
-	display: none !important;
-}
-</style>
-<meta name="author" content="Leszczyński Krystian">
+
+
+<script type="text/javascript">
+//TODO DODAĆ IKONĘ
+</script>
+
+
+
+<!-- SCROLLS -->
+<!-- load bootstrap and fontawesome via CDN -->
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+<!-- SPELLS -->
+<!-- load angular via CDN -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+
+
+	<script src="js/app.js"></script>
+	<script src="pages/about/about.js"></script>
+	<script src="pages/home/home.js"></script>
 </head>
 
-<body>
-	<div class="container">
-		<h1>Greeting</h1>
-		<div ng-controller="home" ng-cloak class="ng-cloak">
-			<p>The ID is {{greeting.id}}</p>
-			<p>The content is {{greeting.content}}</p>
-		</div>
+<body  ng-controller="HomeController">
+
+
+	<!-- HEADER AND NAVBAR -->
+	<header>
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">Twoje Książki</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><i class="fa fa-home fa-lg"></i> Strona domowa</a></li>
+					<li><a href="#about"><i class="fa fa-info-circle fa-lg"></i> O aplikacji</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<!-- MAIN CONTENT AND INJECTED VIEWS -->
+	<div id="main">
+		<div ng-view></div>
 	</div>
-	<script src="js/angular-bootstrap.js" type="text/javascript"></script>
-	<script src="js/app.js"></script>
+	
+	
+
 </body>
 </html>
