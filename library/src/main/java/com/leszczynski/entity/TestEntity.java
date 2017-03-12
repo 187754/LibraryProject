@@ -8,25 +8,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="test")
+@Table(name = "test")
 public class TestEntity implements Serializable {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
-	
-	public TestEntity(){
-		
+	public TestEntity() {
+
 	};
-	
-	public TestEntity(String name){
-		this.setName(name);
+
+	public TestEntity(String name) {
+		setName(name);
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -38,13 +36,11 @@ public class TestEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	private String name;
 
+	private String name;
 
 	public Long getId() {
 		return id;
 	}
-	
-	
+
 }

@@ -22,7 +22,7 @@ scotchApp.config(function($routeProvider) {
 	.when('/contact', {
 		templateUrl : 'pages/contact.html',
 		controller : 'contactController'
-	});
+	}); 
 });
 
 // create the controller and inject Angular's $scope

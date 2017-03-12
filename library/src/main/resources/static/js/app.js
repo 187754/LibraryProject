@@ -3,7 +3,10 @@ angular.module('libraryApp',
 		[ 
 		  'ngRoute', 
 		  'libraryApp.about', 
-		  'libraryApp.home'
+		  'libraryApp.home',
+		  'libraryApp.addLibrary',
+		  'libraryApp.login',
+		  'libraryApp.cookiesManager',
 		 ])
 
 .config([ '$routeProvider', function($routeProvider) {
@@ -15,5 +18,9 @@ angular.module('libraryApp',
 	.otherwise({
 		redirectTo : '/home'
 	});
-	// TODO add httpProvider
+
+//	
+	
 } ])
+
+ 

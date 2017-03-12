@@ -17,10 +17,12 @@
 <!-- SCROLLS -->
 <!-- load bootstrap and fontawesome via CDN -->
 <link rel="stylesheet"
+
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
-
+<link rel="stylesheet" 
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- SPELLS -->
 <!-- load angular via CDN -->
 <script
@@ -28,10 +30,15 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
 
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-loader.js"></script>
 
 	<script src="js/app.js"></script>
 	<script src="pages/about/about.js"></script>
 	<script src="pages/home/home.js"></script>
+	<script src="pages/addLibrary/addLibrary.js"></script>
+	<script src="pages/login/login.js"></script>
+	<script src="pages/cookiesManager/cookiesManager.js"></script>
 </head>
 
 <body  ng-controller="HomeController">
@@ -47,7 +54,10 @@
 
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#"><i class="fa fa-home fa-lg"></i> Strona domowa</a></li>
+					<li><a href="#addLibrary"><i class="fa fa-university fa-lg"></i>Dodaj bibliotekę</a></li>
+					<li><a href="#addBook"><i class="fa fa-book fa-lg"></i>Dodaj książkę</a></li>
 					<li><a href="#about"><i class="fa fa-info-circle fa-lg"></i> O aplikacji</a></li>
+					
 				</ul>
 			</div>
 		</nav>
@@ -56,6 +66,7 @@
 	<div id="main">
 		<div ng-view></div>
 	</div>
+	
 	
 	
 

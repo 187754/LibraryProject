@@ -10,11 +10,11 @@ import junit.framework.TestCase;
 
 public class testEntityTest extends TestCase {
 
-	public void testApp(){
+	public void testApp() {
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		
+
 		TestEntity test = new TestEntity("cos");
 		session.save(test);
 		session.getTransaction().commit();
