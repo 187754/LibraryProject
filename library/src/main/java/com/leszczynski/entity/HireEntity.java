@@ -2,6 +2,7 @@ package com.leszczynski.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,8 +17,10 @@ public class HireEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(nullable = true)
 	private Long userID;
 
+	@Column(nullable = true)
 	private Long bookID;
 
 	private Date hireDate;

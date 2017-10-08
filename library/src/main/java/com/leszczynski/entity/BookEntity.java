@@ -2,6 +2,7 @@ package com.leszczynski.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,17 +17,33 @@ public class BookEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(nullable = true)
 	private String title;
+
 	private String originalTitle;
+
+	@Column(nullable = true)
 	private Long authorID;
+
+	@Column(length = 13)
 	private String ISBN;
+
 	private String year;
+
 	private Long publishingHouseID;// wydawnictwo
+
+	@Column(length = 2000)
 	private String description;
+
 	private Long reservationID;// id osoby rezerwujacej
+
 	private Long hireID;// wypozyczenie
+
+	@Column(nullable = true)
 	private Boolean isRemoved;
+
 	private Date reservationDate; // data rezerwacji
+
 	private int hireTime;// okres wypożyczenia
 
 	public BookEntity(String title) {

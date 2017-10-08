@@ -1,5 +1,6 @@
 package com.leszczynski.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,8 +14,10 @@ public class LibraryEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(nullable = true)
 	private String name;
 
+	@Column(nullable = true)
 	private Long ownerID; // właściciel
 
 	private boolean isVisible;
