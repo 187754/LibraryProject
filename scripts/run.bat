@@ -1,3 +1,3 @@
 cd ../library
-mvn package
-mvn spring-boot:run
+call mvn package
+call mvn spring-boot:run
