@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('libraryApp.about',['ngRoute'])
+angular.module('libraryApp.addBook',['ngRoute'])
     .config([configuration])
-    .controller('AboutCtrl',['$scope', controllerContent]);
+    .controller('AddBookCtrl',['$scope', controllerContent]);
 
 function configuration(){
 };

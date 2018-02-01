@@ -1,23 +1,12 @@
 'use strict';
 
 angular.module('libraryApp.addLibrary',['ngRoute'])
+    .config([configuration])
+    .controller('AddLibraryCtrl',['$scope', controllerContent]);
 
-.config(['$routeProvider', configuration])
-.controller('addLibraryController',['$scope', '$http', '$route', controllerContent]);
-
-function configuration($routeProvider){
-	$routeProvider.when('/addLibrary', {
-		templateUrl : 'pages/addLibrary/addLibrary.html',
-		controller : 'addLibraryController'
-	});
+function configuration(){
 };
 
-function controllerContent($scope, $http, $route){
-	
-	$http({
-		url: "http://localhost:8080/resource/",
-		method: "GET",
-	}).then(function(response){
-		console.log(response.data);
-	});
+function controllerContent($scope){
+    $scope.message = 'Look! I am an home home home page.';
 }

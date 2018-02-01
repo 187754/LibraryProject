@@ -1,74 +1,52 @@
 <!DOCTYPE html>
-
-<!-- define angular app -->
-<html ng-app="libraryApp">
+<html data-ng-app="libraryApp">
 <head>
 
-<title>Twoje Książki</title>
-<meta charset="utf-8">
+    <title>Twoje Książki</title>
+    <meta charset="utf-8">
+
+    <script type="text/javascript">
+        //TODO DODAĆ IKONĘ
+    </script>
 
 
-<script type="text/javascript">
-//TODO DODAĆ IKONĘ
-</script>
-
-
-
-<!-- SCROLLS -->
-<!-- load bootstrap and fontawesome via CDN -->
-<link rel="stylesheet"
-
-	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-<link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
-<link rel="stylesheet" 
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- SPELLS -->
-<!-- load angular via CDN -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-loader.js"></script>
-
-	<script src="js/app.js"></script>
-	<script src="pages/about/about.js"></script>
-	<script src="pages/home/home.js"></script>
-	<script src="pages/addLibrary/addLibrary.js"></script>
-	<script src="pages/login/login.js"></script>
-	<script src="pages/cookiesManager/cookiesManager.js"></script>
 </head>
 
-<body  ng-controller="HomeController">
+<body data-ng-controller="mainCtrl">
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Twoje Książki</a>
+                </div>
 
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/"><i class="fa fa-home fa-lg"></i> Strona domowa</a></li>
+                    <li><a href="addLibrary"><i class="fa fa-university fa-lg"></i>Dodaj bibliotekę</a></li>
+                    <li><a href="addBook"><i class="fa fa-book fa-lg"></i>Dodaj książkę</a></li>
+                    <li><a href="about"><i class="fa fa-info-circle fa-lg"></i> O aplikacji</a></li>
 
-	<!-- HEADER AND NAVBAR -->
-	<header>
-		<nav class="navbar navbar-default">
-			<div class="container">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="/">Twoje Książki</a>
-				</div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div style="align: right" data-ng-controller="dateCtrl">
+        {{myDate() | date}}
+    </div>
+    <div id="main" data-ng-view="">
+        <div></div>
+    </div>
 
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><i class="fa fa-home fa-lg"></i> Strona domowa</a></li>
-					<li><a href="#addLibrary"><i class="fa fa-university fa-lg"></i>Dodaj bibliotekę</a></li>
-					<li><a href="#addBook"><i class="fa fa-book fa-lg"></i>Dodaj książkę</a></li>
-					<li><a href="#about"><i class="fa fa-info-circle fa-lg"></i> O aplikacji</a></li>
-					
-				</ul>
-			</div>
-		</nav>
-	</header>
-	<!-- MAIN CONTENT AND INJECTED VIEWS -->
-	<div id="main">
-		<div ng-view></div>
-	</div>
-	
-	
-	
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+    <script src="https://code.angularjs.org/1.6.7/angular-route.min.js"></script>
 
+    <script src="js/app.js"></script>
+    <script src="pages/addBook/addBook.js"></script>
+    <script src="pages/home/home.js"></script>
+    <script src="pages/about/about.js"></script>
+    <script src="pages/addLibrary/addLibrary.js"></script>
 </body>
 </html>

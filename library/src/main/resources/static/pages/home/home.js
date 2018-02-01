@@ -2,16 +2,12 @@
 
 angular.module('libraryApp.home',['ngRoute'])
 
-.config(['$routeProvider', configuration])
-.controller('HomeController',['$scope', controllerContent]);
+    .config([configuration])
+    .controller('HomeCtrl',['$scope', controllerContent]);
 
-function configuration($routeProvider){
-	$routeProvider.when('/home', {
-		templateUrl : 'pages/home/home.html',
-		controller : 'HomeController'
-	});
+function configuration(){
 };
 
 function controllerContent($scope){
-	$scope.message = 'Look! I am an home home home page.';
+    $scope.message = 'Look! I am an home home home page.';//TODO usunac
 }
