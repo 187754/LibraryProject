@@ -2,12 +2,18 @@
 
 angular.module('libraryApp.home',['ngRoute'])
 
-    .config([configuration])
-    .controller('HomeCtrl',['$scope', controllerContent]);
+    .config(['$httpProvider', configuration])
+    .controller('HomeCtrl',['$scope', '$http', controllerContent]);
 
-function configuration(){
+function configuration($httpProvider){
+    $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 };
 
-function controllerContent($scope){
-    $scope.message = 'Look! I am an home home home page.';//TODO usunac
-}
+function controllerContent($scope, $http){
+    $http.get('/resource').then(function(response) {
+        $scope.greeting = response.data;
+        console.log($scope.greeting);
+    }, function myError(response){
+        console.log("status: " + response.status + "  " + response.statusText);
+    });
+};

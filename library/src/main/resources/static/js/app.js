@@ -3,14 +3,15 @@ var app = angular.module('libraryApp', [
     'libraryApp.home',
     'libraryApp.addBook',
     'libraryApp.about',
-    'libraryApp.addLibrary'
+    'libraryApp.addLibrary',
+    'libraryApp.login'
 ]);
 
 app.run(function ($rootScope){
     $rootScope.rootDate = new Date();
 });
 
-app.config(function($routeProvider, $locationProvider){
+app.config(function($routeProvider, $locationProvider, $httpProvider){
     $routeProvider
         .when('/addBook', {
             templateUrl : 'pages/addBook/addBook.html',
@@ -28,6 +29,10 @@ app.config(function($routeProvider, $locationProvider){
             templateUrl : 'pages/addLibrary/addLibrary.html',
             controller : 'AddLibraryCtrl'
         })
+        .when('/login', {
+            templateUrl : 'pages/login/login.html',
+            controller : 'LoginCtrl'
+        })
         .otherwise({
             template : "Strona niedostępna."
         });
@@ -37,9 +42,11 @@ app.config(function($routeProvider, $locationProvider){
         enabled: true,
         requireBase: false
     });
+
+    $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 });
 
-app.controller('mainCtrl', function($scope, $location){
+app.controller('mainCtrl', function($scope, $location, $http){
     $scope.getClass = function (path) {
         if ($location.path().substr(0, path.length) == path) {
             return "active"
@@ -47,6 +54,7 @@ app.controller('mainCtrl', function($scope, $location){
             return ""
         }
     }
+
 });
 
 app.controller('dateCtrl', function ($rootScope, $scope){

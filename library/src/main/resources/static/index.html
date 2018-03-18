@@ -4,7 +4,7 @@
 
     <title>Twoje Książki</title>
     <meta charset="utf-8">
-
+    <link rel="icon" href="../favicon.ico" />
     <script type="text/javascript">
         //TODO DODAĆ IKONĘ
     </script>
@@ -12,8 +12,8 @@
 
 </head>
 
-<body data-ng-controller="mainCtrl">
-    <header id="menuBar">
+<body data-ng-controller="mainCtrl" ng-cloak class="ng-cloak">
+    <header  class="menuBar">
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
@@ -22,10 +22,11 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/"><i class="fa fa-home fa-lg"></i> Strona domowa</a></li>
-                    <li><a href="addLibrary"><i class="fa fa-university fa-lg"></i>Dodaj bibliotekę</a></li>
-                    <li><a href="addBook"><i class="fa fa-book fa-lg"></i>Dodaj książkę</a></li>
+                    <li><a href="addLibrary"><i class="fa fa-university fa-lg"></i> Dodaj bibliotekę</a></li>
+                    <li><a href="addBook"><i class="fa fa-book fa-lg"></i> Dodaj książkę</a></li>
                     <li><a href="about"><i class="fa fa-info-circle fa-lg"></i> O aplikacji</a></li>
-
+                    <li><a href="login"><i class="fa fa-sign-in fa-lg"></i> Zaloguj</a></li>
+                    <li ng-show="authenticated"><a href="" ng-click="logout()"><i class="fa fa-sign-out fa-lg"></i> Wyloguj</a></li>
                 </ul>
             </div>
         </nav>
@@ -49,5 +50,6 @@
     <script src="pages/home/home.js"></script>
     <script src="pages/about/about.js"></script>
     <script src="pages/addLibrary/addLibrary.js"></script>
+    <script src="pages/login/login.js"></script>
 </body>
 </html>

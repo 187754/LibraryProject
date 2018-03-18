@@ -7,7 +7,12 @@ import org.hibernate.cfg.Configuration;
 import com.leszczynski.entity.BookEntity;
 import com.leszczynski.entity.TestEntity;
 import com.leszczynski.entity.UserEntity;
+import org.springframework.stereotype.Service;
 
+
+import java.util.UUID;
+
+@Service
 public class UserService {
 
 	public void testApp() {
@@ -21,5 +26,9 @@ public class UserService {
 		session.save(usr);
 		session.getTransaction().commit();
 		session.close();
+	}
+
+	private String generateToken() {
+		return UUID.randomUUID().toString();
 	}
 }

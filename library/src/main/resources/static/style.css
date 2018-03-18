@@ -1,6 +1,7 @@
-#menuBar {
+menuBar {
     position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
 }
