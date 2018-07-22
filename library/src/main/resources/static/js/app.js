@@ -1,17 +1,19 @@
 var app = angular.module('libraryApp', [
     'ngRoute',
+    'ngResource',
     'libraryApp.home',
     'libraryApp.addBook',
     'libraryApp.about',
     'libraryApp.addLibrary',
-    'libraryApp.login'
+    'libraryApp.login',
+    'libraryApp.register'
 ]);
 
 app.run(function ($rootScope){
     $rootScope.rootDate = new Date();
 });
 
-app.config(function($routeProvider, $locationProvider, $httpProvider){
+app.config(function($routeProvider, $locationProvider, $httpProvider, $resourceProvider){
     $routeProvider
         .when('/addBook', {
             templateUrl : 'pages/addBook/addBook.html',
@@ -33,6 +35,10 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
             templateUrl : 'pages/login/login.html',
             controller : 'LoginCtrl'
         })
+        .when('/register', {
+            templateUrl : 'pages/register/register.html',
+            controller : 'RegisterCtrl'
+        })
         .otherwise({
             template : "Strona niedostępna."
         });
@@ -44,6 +50,8 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
     });
 
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+    $resourceProvider.defaults.stripTrailingSlashes = false;
+
 });
 
 app.controller('mainCtrl', function($scope, $location, $http){

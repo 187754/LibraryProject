@@ -24,7 +24,6 @@ function controllerContent($rootScope, $scope, $http, $location){
                 $rootScope.authenticated = false;
             }
             callback && callback();
-        }, function(response) {
             $rootScope.authenticated = false;
             callback && callback();
         });

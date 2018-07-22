@@ -21,12 +21,13 @@
                 </div>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/"><i class="fa fa-home fa-lg"></i> Strona domowa</a></li>
-                    <li><a href="addLibrary"><i class="fa fa-university fa-lg"></i> Dodaj bibliotekę</a></li>
-                    <li><a href="addBook"><i class="fa fa-book fa-lg"></i> Dodaj książkę</a></li>
-                    <li><a href="about"><i class="fa fa-info-circle fa-lg"></i> O aplikacji</a></li>
-                    <li><a href="login"><i class="fa fa-sign-in fa-lg"></i> Zaloguj</a></li>
-                    <li ng-show="authenticated"><a href="" ng-click="logout()"><i class="fa fa-sign-out fa-lg"></i> Wyloguj</a></li>
+                    <li ng-show="authenticated"><a href="/"><i class="fa fa-home fa-lg"></i> Strona domowa</a></li>
+                    <li ng-show="authenticated"><a href="addLibrary"><i class="fa fa-university fa-lg"></i> Dodaj bibliotekę</a></li>
+                    <li ng-show="authenticated"><a href="addBook"><i class="fa fa-book fa-lg"></i> Dodaj książkę</a></li>
+                    <li ng-show="authenticated"><a href="about"><i class="fa fa-info-circle fa-lg"></i> O aplikacji</a></li>
+                    <li ng-show="!authenticated"><a href="login"><i class="fa fa-sign-in fa-lg"></i> Zaloguj</a></li>
+                    <li ng-show="!authenticated"><a href="register"><i class="fa fa-sign-in fa-lg"></i> Zarejestruj</a></li>
+                    <li ng-show="authenticated"><a href="/" ng-click="logout()"><i class="fa fa-sign-out fa-lg"></i> Wyloguj</a></li>
                 </ul>
             </div>
         </nav>
@@ -44,6 +45,7 @@
     <link rel="stylesheet" href="style.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
     <script src="https://code.angularjs.org/1.6.7/angular-route.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.10/angular-resource.min.js"></script>
 
     <script src="js/app.js"></script>
     <script src="pages/addBook/addBook.js"></script>
@@ -51,5 +53,6 @@
     <script src="pages/about/about.js"></script>
     <script src="pages/addLibrary/addLibrary.js"></script>
     <script src="pages/login/login.js"></script>
+    <script src="pages/register/register.js"></script>
 </body>
 </html>

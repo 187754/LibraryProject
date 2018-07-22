@@ -12,9 +12,6 @@ import javax.persistence.Table;
 @Table(name = "users")
 public class UserEntity implements Serializable {
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -31,12 +28,21 @@ public class UserEntity implements Serializable {
 
 	private String isAdmin;
 
-	public UserEntity(String name) {
+	private boolean isActive;
+
+	private String email;
+
+	private String activationLink;
+
+    public UserEntity() {
+    }
+
+    public UserEntity(String name) {
 		super();
 		this.name = name;
 	}
 
-	public String getLogin() {
+    public String getLogin() {
 		return login;
 	}
 
@@ -84,4 +90,27 @@ public class UserEntity implements Serializable {
 		return id;
 	}
 
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean active) {
+		isActive = active;
+	}
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getActivationLink() {
+        return activationLink;
+    }
+
+    public void setActivationLink(String activationLink) {
+        this.activationLink = activationLink;
+    }
 }
