@@ -17,6 +17,7 @@ import javax.mail.MessagingException;
 import javax.xml.bind.ValidationException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -146,6 +147,24 @@ public class UserService {
             user.setActivationLink(null);
             user.setActive(true);
             userDao.updateUser(user);
+        }
+    }
+
+    public boolean checkNick(String nick) {
+        List<String> nicks = userDao.getAllNicks();
+        if (nicks.contains(nick)) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public boolean checkMail(String mail) {
+        List<String> mails = userDao.getAllMails();
+        if (mails.contains(mail)) {
+            return true;
+        }else {
+            return false;
         }
     }
 }

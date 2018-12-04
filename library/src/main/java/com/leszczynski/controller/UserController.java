@@ -1,24 +1,21 @@
 package com.leszczynski.controller;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-
-import com.leszczynski.entity.UserEntity;
 import com.leszczynski.mail.Mail;
 import com.leszczynski.mail.MailSenderService;
+import com.leszczynski.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.leszczynski.service.UserService;
-
-import javax.mail.Header;
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.ValidationException;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 
 @RestController
@@ -61,6 +58,24 @@ public class UserController {
         return new ResponseEntity(response, HttpStatus.OK);
     }
 
+    @RequestMapping(value="/user/{nick}", method=RequestMethod.GET)
+    public void checkIsNickUsed(@PathVariable("nick") String nick, HttpServletResponse response) throws IOException {
+        if (userService.checkNick(nick)){
+            response.sendError(HttpServletResponse.SC_CONFLICT, "This login is already use.");
+            return;
+        }
+
+    }
+
+    @RequestMapping(value="/user/{mail}", method=RequestMethod.GET)
+    public void checkIsMailUsed(@PathVariable("mail") String mail, HttpServletResponse response) throws IOException {
+        if (userService.checkMail(mail)){
+            response.sendError(HttpServletResponse.SC_CONFLICT, "This login is already use.");
+            return;
+        }
+
+    }
+
     //TODO check what this method do (send email?)
 	@RequestMapping("/register")
 	public Map<String, Object> registerUser() {
@@ -93,9 +108,10 @@ public class UserController {
 	}
 
 	@RequestMapping("/activate/{url}/{id}")
-    public void activateUser(@PathVariable("url") String activationUrl, @PathVariable("id") Long id){
+    public void activateUser(@PathVariable("url") String activationUrl, @PathVariable("id") Long id, HttpServletResponse response) throws IOException {
         userService.activateUser(activationUrl, id);
         System.out.println("activationUrl = " + activationUrl);
+        response.sendRedirect("http://localhost:8083");
 
     }
 

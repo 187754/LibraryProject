@@ -3,9 +3,12 @@ package com.leszczynski.dao;
 import com.leszczynski.converter.UserConverter;
 import com.leszczynski.dto.User;
 import com.leszczynski.entity.UserEntity;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
+import java.util.List;
 
 public class UserDao {
 
@@ -40,5 +43,28 @@ public class UserDao {
             return user;
         }
         return null;
+    }
+
+    public List<String> getAllNicks() {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        String hql = "select login FROM users";
+        Query query = session.createQuery(hql);
+        List results = query.list();
+        session.getTransaction().commit();
+        session.close();
+        return results;
+
+    }
+
+    public List<String> getAllMails() {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        String hql = "select email FROM users";
+        Query query = session.createQuery(hql);
+        List results = query.list();
+        session.getTransaction().commit();
+        session.close();
+        return results;
     }
 }

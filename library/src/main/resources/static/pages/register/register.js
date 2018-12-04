@@ -13,6 +13,16 @@ function controllerContent($rootScope, $scope, $http, $location, $resource){
 
     $scope.userData = {};
 
+    $scope.checkNick = function(){
+        $http.get('/user/' + $scope.userData.username).then(function(response) {
+            if (response.statusCode(200)) {
+                console.log(true);
+            } else {
+                alert("Taki login już istnieje! Proszę użyć innego.");
+            }
+        });
+    };
+
     $scope.register = function() {
         if ($scope.userData.password === $scope.userData.password2){
             var User = $resource('/user/new');
